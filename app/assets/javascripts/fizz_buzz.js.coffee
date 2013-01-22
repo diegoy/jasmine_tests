@@ -1,4 +1,4 @@
-window.FizzBuzz = ->
+class @FizzBuzz
   tell: (number) ->
     text = ""
     if (number % 3) == 0

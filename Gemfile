@@ -20,9 +20,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
-   gem 'jasmine'
-   gem 'jasminerice'
+group :development, :test do
+  gem 'jasmine'
+  gem 'jasminerice'
+  gem 'guard-jasmine'
+  gem 'rb-fsevent', '~> 0.9.1'
 end
 
 gem 'jquery-rails'
