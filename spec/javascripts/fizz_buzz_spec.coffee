@@ -1,4 +1,4 @@
-require "fizz_buzz"
+require "/assets/fizz_buzz.js"
 describe "FizzBuzz", ->
 
   it "should not be Fizz or Buzz", ->

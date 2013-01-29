@@ -22,8 +22,7 @@ end
 
 group :development, :test do
   gem 'jasmine'
-  gem 'jasminerice'
-  gem 'guard-jasmine'
+  gem 'evergreen', require: 'evergreen/rails'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'rspec-rails'
 end
