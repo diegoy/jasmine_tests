@@ -25,6 +25,7 @@ group :development, :test do
   gem 'jasminerice'
   gem 'guard-jasmine'
   gem 'rb-fsevent', '~> 0.9.1'
+  gem 'rspec-rails'
 end
 
 gem 'jquery-rails'
