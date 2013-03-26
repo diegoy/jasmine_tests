@@ -12,16 +12,12 @@ describe "States", ->
   it "should fetch states from server", ->
     expect(@states.fetch()).not.toBe null
 
-  it "after fetch collection must be an array", ->
+  it "should contains Pernambuco states", ->
     @states.fetch()
-    expect(Array.isArray(@states.all())).toBe(true)
+    found = 0
+    filteredStates = @states.all().filter (fetched_state) ->
+      is_equal = json.filter (current_state) ->
+        fetched_state.name == current_state.name && fetched_state.id == current_state.id
+      found += 1 if is_equal
 
-  it "should not be empty", ->
-    @states.fetch()
-    expect(@states.all().length).toBeGreaterThan(0)
-
-  it "should fetch Pernambuco", ->
-    @states.fetch()
-    filteredStates = @states.all().filter (state) -> 
-                                state.name == "Pernambuco"
-    expect(filteredStates.length).toBe 1
+    expect(filteredStates.length).toBe json.length
