@@ -6,11 +6,13 @@ describe "States", ->
   beforeEach ->
     @states = new States()
     spyOn($, "ajax").andCallFake((options) ->
-      options.success(json)
+      options.success[0](json)
+      options.success[1]()
     )
 
   it "should fetch states from server", ->
-    expect(@states.fetch()).not.toBe null
+    @states.fetch()
+    expect(@states.all()).not.toBe null
 
   it "should contains Pernambuco states", ->
     @states.fetch()
@@ -21,3 +23,8 @@ describe "States", ->
       found += 1 if is_equal
 
     expect(filteredStates.length).toBe json.length
+
+  it "fetch should call passed callback", ->
+    callback = jasmine.createSpy("callback")
+    @states.fetch(callback)
+    expect(callback).toHaveBeenCalled()
